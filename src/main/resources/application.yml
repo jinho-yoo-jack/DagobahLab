@@ -3,7 +3,7 @@ spring:
     name: DagobahLab
 
   datasource:
-    url: jdbc:mysql://mysql:13306/dagobah_lab?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:13306/dagobah_lab?serverTimezone=UTC&characterEncoding=UTF-8
     username: master
     password: yoda
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,3 +18,8 @@ spring:
         globally_quoted_identifiers: false
         format_sql: true     # ?? ?? ?? (??)
         show_sql: true       # ?? ?? ??
+
+  jackson:
+    visibility:
+      field: none
+      setter: public_only

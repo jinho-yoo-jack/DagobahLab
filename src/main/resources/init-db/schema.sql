@@ -31,6 +31,10 @@ CREATE TABLE `CATEGORY`
     PRIMARY KEY (id, name)
 );
 
+-- 왠만하면 변화가 일어나지 않습니다.
+-- 컬럼에 대한 추가는 일어날 수 있지만, 컬럼명 변경되는 일은 극히 드물다.
+-- description 컬럼 -> desc 컬럼명
+-- 1억건에 대한 데이터를 모두 다 description -> desc로 변경해줘야해요.
 CREATE TABLE `TASK`
 (
     `id`           BIGINT AUTO_INCREMENT  NOT NULL COMMENT '상품 ID',
@@ -43,6 +47,18 @@ CREATE TABLE `TASK`
     `completed_at` DATETIME DEFAULT NOW() NOT NUll,
     `created_at`   DATETIME DEFAULT NOW() NOT NULL,
     `updated_at`   DATETIME DEFAULT NOW() NOT NUll,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE `BOARD`
+(
+    `id`         BIGINT AUTO_INCREMENT  NOT NULL COMMENT '게시글 ID',
+    `title`      VARCHAR(200)           NOT NULL COMMENT '게시글 제목',
+    `content`    TEXT                   NOT NULL COMMENT '게시글 내용',
+    `author`     VARCHAR(50)            NOT NULL COMMENT '작성자',
+    `view_count` BIGINT DEFAULT 0       NOT NULL COMMENT '조회수',
+    `created_at` DATETIME DEFAULT NOW() NOT NULL COMMENT '생성일시',
+    `updated_at` DATETIME DEFAULT NOW() NOT NULL COMMENT '수정일시',
     PRIMARY KEY (id)
 );
 
